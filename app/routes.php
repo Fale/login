@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function() { return View::make('login'); });
+Route::get('/', array('as' => 'home', function () { }));
+Route::get('login', array('as' => 'login', function () { }))->before('guest');
+Route::post('login', function () { });
+Route::get('logout', array('as' => 'logout', function () { }))->before('auth');
+Route::get('profile', array('as' => 'profile', function () { }))->before('auth');
+
+/*Route::get('/', function() { return View::make('login'); });
 Route::get('/register', function() { return View::make('register'); });
-Route::get('/lostpass', function() { return View::make('lostpass'); });
+Route::get('/lostpass', function() { return View::make('lostpass'); });*/
