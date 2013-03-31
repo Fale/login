@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', function() { return View::make('login'); });
+Route::get('/register', function() { return View::make('register'); });
+Route::get('/lostpass', function() { return View::make('lostpass'); });
