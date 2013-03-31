@@ -16,7 +16,7 @@
             <input id="pass" maxlength="60" size="60" type="password" name="pass" onFocus="this.style.backgroundColor='#FFFFFF';"></td>
         </tr>
         <tr>
-          <td valign="top"><p><a href="lostpwd.php">Hai dimenticato la password  ? Clicca qui</a></p>
+          <td valign="top"><p><a href="lostpwd">Hai dimenticato la password  ? Clicca qui</a></p>
             <p>
               <script language="JavaScript" type="text/JavaScript">
 var whitespace = " \t\n\r";
