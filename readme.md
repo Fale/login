@@ -1,13 +1,10 @@
-## Laravel 4.x
+## Login
 
-### A Framework For Web Artisans
-
-[Official Documentation](http://four.laravel.com) (Under Active Development)
-
-### Contributing To Laravel
-
-**All issues and pull requests should be filed on the [laravel/framework](http://github.com/laravel/framework) repository.**
-
-### License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+### Installation
+git clone git@github.com:Fale/login.git
+cd login
+curl -sS https://getcomposer.org/installer | php
+composer.phar install
+php artisan migrate:install
+If you want the database seeds:
+  php artisan db:seed
