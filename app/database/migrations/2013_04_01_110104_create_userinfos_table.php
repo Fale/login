@@ -18,6 +18,7 @@ class CreateUserInfosTable extends Migration {
             $t->boolean('sex');
             $t->date('birth');
             $t->string('address', 30);
+            $t->string('number', 10);
             $t->string('address 2', 30);
             $t->string('city', 30);
             $t->string('province', 2);
