@@ -55,4 +55,10 @@ class AccountController extends BaseController {
                 ->with('flash_error', 'Your datais wrong')
                 ->withInput();
     }
+
+    public function remindPassword()
+    {
+        $credentials = array('email' => Input::get('email'));
+        return Password::reminder($credentials);
+    }
 }
