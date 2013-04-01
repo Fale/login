@@ -11,7 +11,7 @@ class CreateUserInfosTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('userinfos', function($t) {
+        Schema::create('user_infos', function($t) {
             $t->integer('user_id');
             $t->string('name', 64);
             $t->string('surname', 64);
@@ -25,6 +25,7 @@ class CreateUserInfosTable extends Migration {
             $t->string('zipcode', 10);
             $t->string('country', 30);
             $t->string('phone', 16);
+            $t->timestamps();
         });
 	}
 
