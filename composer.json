@@ -1,6 +1,6 @@
 {
 	"require": {
-		"laravel/framework": "4.0.0-BETA4"
+		"laravel/framework": "4.0.*"
 	},
 	"autoload": {
 		"classmap": [
