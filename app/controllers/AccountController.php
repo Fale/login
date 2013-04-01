@@ -59,6 +59,26 @@ class AccountController extends BaseController {
     public function remindPassword()
     {
         $credentials = array('email' => Input::get('email'));
-        return Password::reminder($credentials);
+        Password::remind($credentials);
+        if (Session::has('error'))
+            return Redirect::route('remindPassword')
+                ->with('flash_error', 'Email not found');
+        else
+            return Redirect::route('login')
+                ->with('flash_notice', 'Email inviata con successo');
+
+    }
+
+    public function resetPassword(){
+
+        $credentials = array('email' => Input::get('email'));
+
+        return Password::reset($credentials, function($user, $password)
+        {
+            $user->password = Hash::make($password);
+            $user->save();
+            return Redirect::route('login')
+                ->with('flash_notice', 'Your password has been changed');
+        });
     }
 }
