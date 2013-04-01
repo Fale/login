@@ -7,11 +7,11 @@
         <div id="flash_error">{{ Session::get('flash_error') }}</div>
     @endif
 
-    {{ Form::open(array('action' => 'login', 'method' => 'POST')) }}
+    {{ Form::open(array('url' => 'login', 'method' => 'POST')) }}
         <!-- username field -->
         <p>
-            {{ Form::label('username', 'Username') }}<br/>
-            {{ Form::text('username', Input::old('username')) }}
+            {{ Form::label('email', 'Email') }}<br/>
+            {{ Form::text('email', Input::old('email')) }}
         </p>
         <!-- password field -->
         <p>

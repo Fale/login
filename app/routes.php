@@ -11,10 +11,9 @@
 |
 */
 
-Route::get('/', array('as' => 'home', function () { }));
-Route::get('login', array('as' => 'login', function () { return View::make('login'); }))->before('guest');
-Route::post('login', array('uses' => 'AccountController@login'));
-Route::get('logout', array('as' => 'logout', function () { }))->before('auth');
+Route::get('/', array('as' => 'home', function () { return View::make('login'); }))->before('guest');
+Route::post('login', array('uses' => 'AccountController@doLogin'));
+Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout' ))->before('auth');
 Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
 
 /*Route::get('/', function() { return View::make('login'); });
