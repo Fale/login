@@ -31,13 +31,24 @@ class AccountController extends BaseController {
     {
         $user = User::create( array(
             'email' => Input::get('email'),
-            'password' => Hash::make(Input::get('password'))
+            'password' => Hash::make(Input::get('password')),
+            'cf' => Input::get('cf')
         ));
 
         if ($user)
         {
-            Auth::login($user);
-            return Redirect::route('profile');
+            if (UserInfo::create( array(
+                'user_id' => $user,
+                'name' => Input::get('nome'),
+                'surname' => Input::get('cognome'),
+                'city' => Input::get('citta'),
+                'province' => Input::get('provincia'),
+                'phone' => Input::get('telefono')
+            )))
+            {
+                Auth::login($user);
+                return Redirect::route('profile');
+            }
         }
         else
             return Redirect::route('register')

@@ -1,2 +1,6 @@
 <?php
-class UserInfo extends Eloquent {}
+class UserInfo extends Eloquent {
+    
+    protected $guarded = array();
+
+}
