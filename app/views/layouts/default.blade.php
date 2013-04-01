@@ -16,6 +16,9 @@
             <p><img src="images/logo.png" /></p>
         </div>
         <div class="container">
+            @if(Session::has('flash_notice'))
+                <div id="flash_notice">{{ Session::get('flash_notice') }}</div>
+            @endif
             @yield('content')
         </div> <!-- /container -->
         <div id="footer">
