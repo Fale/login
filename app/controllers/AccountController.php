@@ -26,4 +26,22 @@ class AccountController extends BaseController {
         return Redirect::route('login')
             ->with('flash_notice', 'You are successfully logged out.');
     }
+
+    public function register()
+    {
+        $user = User::create( array(
+            'email' => Input::get('email'),
+            'password' => Input::get('password')
+        ));
+
+        if ($user)
+        {
+            Auth::login($user);
+            return Redirect::route('profile');
+        }
+        else
+            return Redirect::route('register')
+                ->with('flash_error', 'Your datais wrong')
+                ->withInput();
+    }
 }
