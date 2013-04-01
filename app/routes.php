@@ -13,7 +13,7 @@
 
 Route::get('/', array('as' => 'home', function () { }));
 Route::get('login', array('as' => 'login', function () { return View::make('login'); }))->before('guest');
-Route::post('login', function () { });
+Route::post('login', array('uses' => 'AccountController@login'));
 Route::get('logout', array('as' => 'logout', function () { }))->before('auth');
 Route::get('profile', array('as' => 'profile', function () { }))->before('auth');
 
