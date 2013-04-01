@@ -4,7 +4,7 @@
 
 @section('content')
     @if (Session::has('flash_error'))
-        <div id="flash_error">{{ Session::get('flash_error') }}</div>
+        <div class="alert alert-error">{{ Session::get('flash_error') }}</div>
     @endif
 
     {{ Form::open(array('url' => 'login', 'method' => 'POST')) }}
