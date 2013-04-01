@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration {
             $t->increments('id');
             $t->string('email', 45)->unique();
             $t->string('password', 64);
+            $t->string('cf', 16);
             $t->timestamps();
             $t->timestamp('lastaccess');
             $t->boolean('checked');
