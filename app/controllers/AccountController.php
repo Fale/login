@@ -31,7 +31,7 @@ class AccountController extends BaseController {
     {
         $user = User::create( array(
             'email' => Input::get('email'),
-            'password' => Input::get('password')
+            'password' => Hash::make(Input::get('password'))
         ));
 
         if ($user)
