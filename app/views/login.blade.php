@@ -3,6 +3,24 @@
 @section('title')Login @stop
 
 @section('content')
+    @if (Session::has('flash_error'))
+        <div id="flash_error">{{ Session::get('flash_error') }}</div>
+    @endif
+
+    {{ Form::open(array('action' => 'login', 'method' => 'POST')) }}
+        <!-- username field -->
+        <p>
+            {{ Form::label('username', 'Username') }}<br/>
+            {{ Form::text('username', Input::old('username')) }}
+        </p>
+        <!-- password field -->
+        <p>
+            {{ Form::label('password', 'Password') }}<br/>
+            {{ Form::password('password') }}
+        </p>
+        <!-- submit button -->
+        <p>{{ Form::submit('Login') }}</p>
+    {{ Form::close() }}
     <form action="index.php" method="post" name="form1" id="form1" accept-charset="UTF-8" onSubmit="doSubmit(); return false;">
       <table width="100%" border="0" cellspacing="0" cellpadding="3">
         <tr>
