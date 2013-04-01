@@ -21,6 +21,6 @@
         <!-- submit button -->
         <p>{{ Form::submit('Accedi', array('class' => 'button')) }}</p>
     {{ Form::close() }}
-    <p><a href="lostpwd">Hai dimenticato la password  ? Clicca qui</a></p>
+    <p><a href="remindpassword">Hai dimenticato la password  ? Clicca qui</a></p>
     <input name="Submit2" type="button" class="button" value="VOGLIO REGISTRARMI AL SITO" onClick="self.location='register';">
 @stop
