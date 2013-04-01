@@ -5,7 +5,7 @@ class UserInfoTableSeeder extends Seeder {
     public function run()
     {
         DB::table('userinfos')->delete();
-        User::create(array(
+        UserInfo::create(array(
             'user_id' => 1,
             'name' => 'Fabio Alessandro',
             'surname' => 'Locati',
