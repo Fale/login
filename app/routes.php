@@ -11,9 +11,18 @@
 |
 */
 
+// Login and Logout
 Route::get('/', array('as' => 'login', function () { return View::make('login'); }))->before('guest');
-Route::post('login', array('uses' => 'AccountController@doLogin'));
+Route::post('login', array('uses' => 'AccountController@login'));
 Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout' ))->before('auth');
-Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
+
+// Registration
 Route::get('register', array('as' => 'register', function() {  return View::make('register'); }))->before('guest');
 Route::post('register', array('uses' => 'AccountController@register'));
+
+// Lost Password
+Route::get('remindpassword', array('as' => 'register', function() {  return View::make('remindpassword'); }))->before('guest');
+Route::post('password/remind', array( 'uses' => 'AccountController@remindPassword'));
+
+// Profile
+Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');

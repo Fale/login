@@ -2,7 +2,7 @@
 
 class AccountController extends BaseController {
 
-    public function doLogin()
+    public function login()
     { 
         $user = array(
             'email' => Input::get('email'),
