@@ -19,6 +19,7 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout
 // Registration
 Route::get('register', array('as' => 'register', function() {  return View::make('register'); }))->before('guest');
 Route::post('register', array('uses' => 'AccountController@register'));
+Route::get('checkmail/{token}', array('as' => 'checkmail', 'uses' => 'AccountController@checkMail'));
 
 // Lost Password
 Route::get('remindpassword', array('as' => 'remindPassword', function() {  return View::make('remindpassword'); }))->before('guest');

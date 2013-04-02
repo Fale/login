@@ -38,7 +38,7 @@ class AccountController extends BaseController {
         if ($user)
         {
             if (UserInfo::create( array(
-                'user_id' => $user,
+                'user_id' => $user->id,
                 'name' => Input::get('nome'),
                 'surname' => Input::get('cognome'),
                 'city' => Input::get('citta'),
@@ -46,8 +46,12 @@ class AccountController extends BaseController {
                 'phone' => Input::get('telefono')
             )))
             {
-                Auth::login($user);
-                return Redirect::route('profile');
+                if(EmailCheck::sendToken($user->id))
+                {
+                    Auth::login($user);
+                    return Redirect::route('profile')
+                        ->with('flash_notice', 'Il tuo account è stato correttamente creato. Controlla la mail per attivare il tuo account');
+                }
             }
         }
         else
@@ -80,5 +84,14 @@ class AccountController extends BaseController {
             return Redirect::route('login')
                 ->with('flash_notice', 'Your password has been changed');
         });
+    }
+
+    public function checkMail($token){
+        if (EmailCheck::checkToken($token))
+            return Redirect::route('profile')
+                ->with('flash_notice', 'Account validato correttamente');
+        else
+            return Redirect::route('profile')
+                ->with('flash_error', 'Errore nella validazione dell\'account');
     }
 }

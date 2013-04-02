@@ -13,7 +13,7 @@ class CreateEmailChecksTable extends Migration {
 	{
 		Schema::create('email_checks', function($t)
 		{
-			$t->string('email');
+			$t->integer('user_id')->primary();
 			$t->string('token');
 			$t->timestamp('created_at');
 		});
