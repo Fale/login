@@ -13,7 +13,7 @@ class AccountController extends BaseController {
             if (!Auth::user()->checked)
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
             if (!Document::where('user_id', Auth::user())->count())
-                Session::put('flash_document', 'Non hai ancora caricato nessun docuemnto');
+                Session::put('flash_document', 'Non hai ancora caricato nessun documento');
             return Redirect::route('profile')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
