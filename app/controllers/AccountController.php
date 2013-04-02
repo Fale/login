@@ -12,6 +12,8 @@ class AccountController extends BaseController {
         if (Auth::attempt($user)) {
             if (!Auth::user()->checked)
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
+            if (!Document::where('user_id', Auth::user())->count())
+                Session::put('flash_document', 'Non hai ancora caricato nessun docuemnto');
             return Redirect::route('profile')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
@@ -25,6 +27,10 @@ class AccountController extends BaseController {
     public function logout()
     {
         Auth::logout();
+        if(Session::has('flash_activation'))
+            Session::forget('flash_activation');
+        if(Session::has('flash_document'))
+            Session::forget('flash_document');
         return Redirect::route('login')
             ->with('flash_notice', 'You are successfully logged out.');
     }

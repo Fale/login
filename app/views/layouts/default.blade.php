@@ -19,6 +19,9 @@
             @if(Session::has('flash_activation'))
                 <div class="alert alert-warning">{{ Session::get('flash_activation') }}</div>
             @endif
+            @if(Session::has('flash_document'))
+                <div class="alert alert-warning">{{ Session::get('flash_document') }}</div>
+            @endif
             @if(Session::has('flash_notice'))
                 <div class="alert alert-success">{{ Session::get('flash_notice') }}</div>
             @endif
