@@ -10,6 +10,8 @@ class AccountController extends BaseController {
         );
         
         if (Auth::attempt($user)) {
+            if (!Auth::user()->checked)
+                Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
             return Redirect::route('profile')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
