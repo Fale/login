@@ -17,6 +17,8 @@ class CreateDocumentsTable extends Migration {
             $t->integer('type');
             $t->string('number');
             $t->string('provider');
+            $t->boolean('verified');
+            $t->boolean('visible');
             $t->timestamp('provided');
             $t->timestamp('expiry');
             $t->timestamps();
