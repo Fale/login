@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Profilo @stop
 
 @section('content')
     <h2>Welcome "{{ Auth::user()->email }}" to the protected page!</h2>

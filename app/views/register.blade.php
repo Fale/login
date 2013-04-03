@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Registrati @stop
 
 @section('content')
     <h2>Registrati</h2>

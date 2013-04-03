@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Accedi @stop
 
 @section('content')
     @if (Session::has('flash_error'))

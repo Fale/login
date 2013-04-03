@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Documenti @stop
 
 @section('content')
     <h2>I tuoi documenti</h2>
