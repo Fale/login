@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-    @foreach (Document::where('user_id', Auth::user()->id)->get() as $document)
+    @foreach (Document::getAll() as $document)
             @if ($document->verified)
                 <tr class="success">
             @else
