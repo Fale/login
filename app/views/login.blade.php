@@ -6,7 +6,7 @@
     @if (Session::has('flash_error'))
         <div class="alert alert-error">{{ Session::get('flash_error') }}</div>
     @endif
-    <h2>Login</h2>
+    <h2>Collegati</h2>
     {{ Form::open(array('url' => 'login', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
