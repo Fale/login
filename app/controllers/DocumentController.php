@@ -16,7 +16,12 @@ class DocumentController extends BaseController {
             'provided' => Input::get('provided'),
             'expiry' => Input::get('expiry')
         );
-        Document::insert($document);
+        if (Document::insert($document))
+            return Redirect::route('documents')
+                ->with('flash_notice', 'Documento inserito con successo');
+        else
+            return Redirect::route('documentAdd')
+                ->with('flash_error', 'Errore nell\'inserimento');
 	}
 
 }

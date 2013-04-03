@@ -33,6 +33,7 @@ Route::get('profile', array('as' => 'profile', function() {  return View::make('
 // Document
 Route::get('profile/document', array('as' => 'documents', function() {  return View::make('document/list'); }))->before('auth');
 Route::post('profile/document', array('uses' => 'DocumentController@add'));
+Route::get('profile/document/add', array('as' => 'addDocument', function() {  return View::make('document/add'); }))->before('auth');
 Route::get('profile/document/{id}', array('as' => 'document', function($id) {  return View::make('document'); }))->before('auth');
 Route::post('profile/document/edit/{id}', array('uses' => 'DocumentController@edit'));
 Route::post('profile/document/del/{id}', array('uses' => 'DocumentController@del'));
