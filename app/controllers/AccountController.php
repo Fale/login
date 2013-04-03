@@ -10,6 +10,7 @@ class AccountController extends BaseController {
         );
         
         if (Auth::attempt($user)) {
+            User::where('id', Auth::user()->id)->update(array('lastaccess' => date('Y-m-t H:i:s')));
             if (!Auth::user()->checked)
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
             if (!Document::where('user_id', Auth::user()->id)->count())
