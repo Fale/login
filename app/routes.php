@@ -31,7 +31,7 @@ Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword')
 Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
 
 // Document
-Route::get('profile/document', array('as' => 'documents', function() {  return View::make('documents'); }))->before('auth');
+Route::get('profile/document', array('as' => 'documents', function() {  return View::make('document/list'); }))->before('auth');
 Route::post('profile/document', array('uses' => 'DocumentController@add'));
 Route::get('profile/document/{id}', array('as' => 'document', function($id) {  return View::make('document'); }))->before('auth');
 Route::post('profile/document/edit/{id}', array('uses' => 'DocumentController@edit'));
