@@ -25,7 +25,7 @@ class EmailCheck extends Eloquent {
     {
         $ok = EmailCheck::where('token', $token)->first();
         if( $ok->user_id ){
-            User::find($ok->user_id)->update(array('checked' => 1));
+            User::where('id', $ok->user_id)->update(array('checked' => 1));
             EmailCheck::where('token', $token)->delete();
             return 1;
         }

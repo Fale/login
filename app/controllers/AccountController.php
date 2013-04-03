@@ -55,6 +55,8 @@ class AccountController extends BaseController {
                 'phone' => Input::get('telefono')
             )))
             {
+                Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
+                Session::put('flash_document', 'Non hai ancora caricato nessun documento');
                 if(EmailCheck::sendToken($user->id))
                 {
                     Auth::login($user);
