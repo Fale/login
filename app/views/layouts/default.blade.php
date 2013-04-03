@@ -36,10 +36,6 @@
                     <td width="20%"><a title="" href="http://www.fermareildeclino.it/adesioni" target="_blank">I PRIMI FIRMATARI</a></td>
                     <td width="20%"><a title="" href="http://www.fermareildeclino.it/tutti-gli-aderenti" target="_blank">TUTTI GLI ADERENTI</a></td>
                 </tr>
-                <tr>
-                    <td style="vertical-align:bottom" colspan="3">Copyright © Fare per Fermare il Declino - tutti i diritti riservati. CF 08056960969</td>
-                    <td colspan="2" style="vertical-align:bottom;text-align:right"><a href="mailto:circolo@faremilano.it"></a></td>
-                </tr>
             </table>
         </div>
     </div>
