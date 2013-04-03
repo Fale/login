@@ -27,9 +27,9 @@ class AccountController extends BaseController {
     public function logout()
     {
         Auth::logout();
-        if(Session::has('flash_activation'))
+        if (Session::has('flash_activation'))
             Session::forget('flash_activation');
-        if(Session::has('flash_document'))
+        if (Session::has('flash_document'))
             Session::forget('flash_document');
         return Redirect::route('login')
             ->with('flash_notice', 'You are successfully logged out.');
@@ -37,7 +37,7 @@ class AccountController extends BaseController {
 
     public function register()
     {
-        $user = User::create( array(
+        $user = User::create(array(
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password')),
             'cf' => Input::get('cf')
@@ -45,7 +45,7 @@ class AccountController extends BaseController {
 
         if ($user)
         {
-            if (UserInfo::create( array(
+            if (UserInfo::create(array(
                 'user_id' => $user->id,
                 'name' => Input::get('nome'),
                 'surname' => Input::get('cognome'),
@@ -95,9 +95,12 @@ class AccountController extends BaseController {
     }
 
     public function checkMail($token){
-        if (EmailCheck::checkToken($token))
+        if (EmailCheck::checkToken($token)) {
+            if (Session::has('flash_activation'))
+                Session::forget('flash_activation');
             return Redirect::route('profile')
                 ->with('flash_notice', 'Account validato correttamente');
+        }
         else
             return Redirect::route('profile')
                 ->with('flash_error', 'Errore nella validazione dell\'account');
