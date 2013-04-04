@@ -14,6 +14,16 @@
     <div id="wrapper">
         <div id="header">
             <p><img src="{{ URL::asset('images/logo.png') }}" /></p>
+            <p style="margin-left:3%;">
+               <a class="btn btn-default" href="http://www.fareinrete.org">Home</a>
+               <a class="btn btn-default" href="http://comitati.fareinrete.org">Blog</a>
+               <a class="btn btn-default" href="http://login.fareinrete.org">0: Registrati</a>
+               <a class="btn btn-default" href="http://forum.fareinrete.org/forum">1: Forum nazionale</a>
+               <a class="btn btn-default" href="http://liquid.fareinrete.org">2: Piattaforma di Voto</a>
+               <a class="btn btn-default" href="http://wiki.fareinrete.org">Istruzioni per l'uso</a>
+               <a class="btn btn-default" href="http://comitati.fareinrete.org">Comitati</a>
+            </p>
+
         </div>
         <div class="container">
             @if(Session::has('flash_notice'))
