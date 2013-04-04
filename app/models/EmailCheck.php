@@ -13,7 +13,10 @@ class EmailCheck extends Eloquent {
             'email' => $user->email,
             'namestamp' => $userInfo->name . " " . $userInfo->surname
         );
-        EmailCheck::insert(array('user_id' => $user->id, 'token' => $data['token'], 'created_at' => time()));
+//        if (!EmailCheck::where('id', $user->id)->count())
+            EmailCheck::insert(array('user_id' => $user->id, 'token' => $data['token'], 'created_at' => date('Y-m-t H:i:s')));
+//        else
+//            EmailCheck::where('user_id', $user->id)->update(array('token' => $data['token'], 'created_at' => date('Y-m-t H:i:s')));
         Mail::send('emails.checkmail', $data, function($m) use ($data)
         {
             $m->to($data['email'], $data['namestamp'])->subject('Attivazione account FareinRete.Org');

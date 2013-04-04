@@ -108,4 +108,13 @@ class AccountController extends BaseController {
             return Redirect::route('profile')
                 ->with('flash_error', 'Errore nella validazione dell\'account');
     }
+
+    public function askCheckMail(){
+        if(EmailCheck::sendToken(Auth::user()->id))
+            return Redirect::route('profile')
+                ->with('flash_notice', 'L\'email di autenticazione ti è stata rinviata correttamente');
+        else
+            return Redirect::route('checkmail')
+                ->with('flash_error', 'Errore nell\'invio della mail');
+    }
 }
