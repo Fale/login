@@ -38,6 +38,30 @@ class AccountController extends BaseController {
 
     public function register()
     {
+        $rules = array(
+            'nome' => 'required',
+            'cognome' => 'required',
+            'citta' => 'required',
+            'provincia' => 'required', //TODO two letters province
+            'email' => array('required', 'email'), //TODO make sure is unique to avoid double entry errors
+            'telefono' => 'required',
+            'cf' => 'required', //TODO regex or filter to validate cf
+            'password' => array('required', 'confirmed')
+        );
+
+        $messages = array(
+            'required' => 'Il campo :attribute è obbligatorio',
+            'email' => 'L\'indirizzo email deve essere valido',
+            'confirmed' => 'Le password devono combaciare'
+        );
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        if( $validator->fails())
+            return Redirect::route('register')
+                ->withErrors($validator)
+                ->withInput();
+
         $user = User::create(array(
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password')),
