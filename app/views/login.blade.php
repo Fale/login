@@ -1,25 +1,28 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Accedi @stop
 
 @section('content')
     @if (Session::has('flash_error'))
         <div class="alert alert-error">{{ Session::get('flash_error') }}</div>
     @endif
+<<<<<<< HEAD
         <div class="span6">
-    {{ Form::open(array('url' => 'login', 'method' => 'POST')) }}
-        <!-- username field -->
-            <p>
-            {{ Form::label('email', 'Indirizzo e-mail') }}<br/>
-            {{ Form::text('email', Input::old('email')) }}
-            </p>
-        <!-- password field -->
-            <p>
-            {{ Form::label('password', 'Password') }}<br/>
-            {{ Form::password('password') }}
-            </p>
-        <!-- submit button -->
-            <p>{{ Form::submit('Accedi', array('class' => 'button')) }}</p>
+=======
+    <h2>Collegati</h2>
+    {{ Form::open(array('url' => 'login', 'method' => 'POST', 'class' => 'form-horizontal')) }}
+        <div class="control-group">
+            {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
+            <div class="controls">{{ Form::text('email', Input::old('email')) }}</div>
+        </div>
+        <div class="control-group">
+            {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+            <div class="controls">{{ Form::text('password') }}</div>
+        </div>
+        <div class="control-group">
+            <div class="controls">{{ Form::submit('Accedi', array('class' => 'button')) }}</div>
+        </div>
+>>>>>>> 2e12ff8f828932a48340cc69685e47ae589d786c
     {{ Form::close() }}
         </div>
         <div class="span5">

@@ -1,9 +1,12 @@
 @extends('layouts.default')
 
-@section('title')Login @stop
+@section('title')Registrati @stop
 
 @section('content')
     <h2>Registrati</h2>
+    @foreach ($errors->all() as $message)
+        <div class="alert alert-error">{{ $message }}</div>
+    @endforeach
     {{ Form::open(array('url' => 'register', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('nome', 'Nome', array('class' => 'control-label')) }}
@@ -38,8 +41,8 @@
             <div class="controls">{{ Form::text('password') }}</div>
         </div>
         <div class="control-group">
-            {{ Form::label('password2', 'Ripeti Password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password2') }}</div>
+            {{ Form::label('password_confirmation', 'Ripeti Password', array('class' => 'control-label')) }}
+            <div class="controls">{{ Form::text('password_confirmation') }}</div>
         </div>
         <div class="control-group">
             <div class="controls">{{ Form::submit('Registrati', array('class' => 'button')) }}</div>

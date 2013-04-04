@@ -26,6 +26,12 @@
 
         </div>
         <div class="container">
+            @if(Session::has('flash_activation'))
+                <div class="alert alert-warning">{{ Session::get('flash_activation') }}</div>
+            @endif
+            @if(Session::has('flash_document'))
+                <div class="alert alert-warning">{{ Session::get('flash_document') }}</div>
+            @endif
             @if(Session::has('flash_notice'))
                 <div class="alert alert-success">{{ Session::get('flash_notice') }}</div>
             @endif
@@ -39,10 +45,6 @@
                     <td width="25%"><a title="" href="http://www.fermareildeclino.it/cambiare-la-politica-fermare-il-declino-tornare-a-crescere" target="_blank">IL NOSTRO MANIFESTO</a></td>
                     <td width="20%"><a title="" href="http://www.fermareildeclino.it/adesioni" target="_blank">I PRIMI FIRMATARI</a></td>
                     <td width="20%"><a title="" href="http://www.fermareildeclino.it/tutti-gli-aderenti" target="_blank">TUTTI GLI ADERENTI</a></td>
-                </tr>
-                <tr>
-                    <td style="vertical-align:bottom" colspan="3">Copyright © Fare per Fermare il Declino - tutti i diritti riservati. CF 08056960969</td>
-                    <td colspan="2" style="vertical-align:bottom;text-align:right"><a href="mailto:circolo@faremilano.it"></a></td>
                 </tr>
             </table>
         </div>

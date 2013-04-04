@@ -10,6 +10,11 @@ class AccountController extends BaseController {
         );
         
         if (Auth::attempt($user)) {
+            User::where('id', Auth::user()->id)->update(array('lastaccess' => date('Y-m-t H:i:s')));
+            if (!Auth::user()->checked)
+                Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
+            if (!Document::where('user_id', Auth::user()->id)->count())
+                Session::put('flash_document', 'Non hai ancora caricato nessun documento');
             return Redirect::route('profile')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
@@ -23,13 +28,41 @@ class AccountController extends BaseController {
     public function logout()
     {
         Auth::logout();
+        if (Session::has('flash_activation'))
+            Session::forget('flash_activation');
+        if (Session::has('flash_document'))
+            Session::forget('flash_document');
         return Redirect::route('login')
             ->with('flash_notice', 'You are successfully logged out.');
     }
 
     public function register()
     {
-        $user = User::create( array(
+        $rules = array(
+            'nome' => 'required',
+            'cognome' => 'required',
+            'citta' => 'required',
+            'provincia' => 'required', //TODO two letters province
+            'email' => array('required', 'email'), //TODO make sure is unique to avoid double entry errors
+            'telefono' => 'required',
+            'cf' => 'required', //TODO regex or filter to validate cf
+            'password' => array('required', 'confirmed')
+        );
+
+        $messages = array(
+            'required' => 'Il campo :attribute è obbligatorio',
+            'email' => 'L\'indirizzo email deve essere valido',
+            'confirmed' => 'Le password devono combaciare'
+        );
+
+        $validator = Validator::make(Input::all(), $rules, $messages);
+
+        if( $validator->fails())
+            return Redirect::route('register')
+                ->withErrors($validator)
+                ->withInput();
+
+        $user = User::create(array(
             'email' => Input::get('email'),
             'password' => Hash::make(Input::get('password')),
             'cf' => Input::get('cf')
@@ -37,8 +70,8 @@ class AccountController extends BaseController {
 
         if ($user)
         {
-            if (UserInfo::create( array(
-                'user_id' => $user,
+            if (UserInfo::create(array(
+                'user_id' => $user->id,
                 'name' => Input::get('nome'),
                 'surname' => Input::get('cognome'),
                 'city' => Input::get('citta'),
@@ -46,8 +79,14 @@ class AccountController extends BaseController {
                 'phone' => Input::get('telefono')
             )))
             {
-                Auth::login($user);
-                return Redirect::route('profile');
+                Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
+                Session::put('flash_document', 'Non hai ancora caricato nessun documento');
+                if(EmailCheck::sendToken($user->id))
+                {
+                    Auth::login($user);
+                    return Redirect::route('profile')
+                        ->with('flash_notice', 'Il tuo account è stato correttamente creato. Controlla la mail per attivare il tuo account');
+                }
             }
         }
         else
@@ -80,5 +119,26 @@ class AccountController extends BaseController {
             return Redirect::route('login')
                 ->with('flash_notice', 'Your password has been changed');
         });
+    }
+
+    public function checkMail($token){
+        if (EmailCheck::checkToken($token)) {
+            if (Session::has('flash_activation'))
+                Session::forget('flash_activation');
+            return Redirect::route('profile')
+                ->with('flash_notice', 'Account validato correttamente');
+        }
+        else
+            return Redirect::route('profile')
+                ->with('flash_error', 'Errore nella validazione dell\'account');
+    }
+
+    public function askCheckMail(){
+        if(EmailCheck::sendToken(Auth::user()->id))
+            return Redirect::route('profile')
+                ->with('flash_notice', 'L\'email di autenticazione ti è stata rinviata correttamente');
+        else
+            return Redirect::route('checkmail')
+                ->with('flash_error', 'Errore nell\'invio della mail');
     }
 }

@@ -20,6 +20,11 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout
 Route::get('register', array('as' => 'register', function() {  return View::make('register'); }))->before('guest');
 Route::post('register', array('uses' => 'AccountController@register'));
 
+// Email Check
+Route::get('checkmail/{token}', array('uses' => 'AccountController@checkMail'));
+Route::post('checkmail', array('uses' => 'AccountController@askCheckMail'));
+Route::get('checkmail', array('as' => 'checkmail', function() {  return View::make('checkmail'); }))->before('auth');
+
 // Lost Password
 Route::get('remindpassword', array('as' => 'remindPassword', function() {  return View::make('remindpassword'); }))->before('guest');
 Route::post('remindpassword', array( 'uses' => 'AccountController@remindPassword'));
@@ -28,3 +33,11 @@ Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword')
 
 // Profile
 Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
+
+// Document
+Route::get('profile/document', array('as' => 'documents', function() {  return View::make('document/list'); }))->before('auth');
+Route::post('profile/document', array('uses' => 'DocumentController@add'));
+Route::get('profile/document/add', array('as' => 'addDocument', function() {  return View::make('document/add'); }))->before('auth');
+Route::get('profile/document/{id}', array('as' => 'document', function($id) {  return View::make('document'); }))->before('auth');
+Route::post('profile/document/edit/{id}', array('uses' => 'DocumentController@edit'));
+Route::post('profile/document/del/{id}', array('uses' => 'DocumentController@del'));
