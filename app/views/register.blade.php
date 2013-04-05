@@ -46,7 +46,7 @@
         </div>
         <div class="control-group">
             <b>Informativa sul trattamento dei dati personali</b>
-            <p>Integrazione dell’Informativa ex art.13 D.Lgs 30 giugno 2003, n.196 La presente informativa integra quella già rilasciata, costituente la Privacy Policy del sito, pubblicato all’indirizzo ……………………………/privacy-policy/ </p>
+            <p>Integrazione dell’Informativa ex art.13 D.Lgs 30 giugno 2003, n.196 La presente informativa integra quella già rilasciata, costituente la Privacy Policy del sito, pubblicato all’indirizzo <a href="http://comitati.fareinrete.org/regolamenti/privacy/">comitati.fareinrete.org/regolamenti/privacy</a></p>
             <p>I dati personali rilasciati con l’accesso a questo sito, anche sensibili perché idonei a rivelare gli orientamenti politici, nonché l’indirizzo IP (Internet Protocol) dell’apparecchiatura con la quale si è connessi, saranno trattati con modalità cartacee, elettroniche e telematiche, per le finalità di:</p>
             <ul>
                 <li>poter inserire commenti sul sito;</li>
