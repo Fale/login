@@ -79,6 +79,7 @@ class AccountController extends BaseController {
                 'phone' => Input::get('telefono')
             )))
             {
+                Phpbb::changePassword($user->id, $user->email, Input::get('password'));
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
                 Session::put('flash_document', 'Non hai ancora caricato nessun documento');
                 if(EmailCheck::sendToken($user->id))
@@ -116,6 +117,7 @@ class AccountController extends BaseController {
         {
             $user->password = Hash::make($password);
             $user->save();
+            Phpbb::changePassword($user->id, $user->email, $password);
             return Redirect::route('login')
                 ->with('flash_notice', 'Your password has been changed');
         });
