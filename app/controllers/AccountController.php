@@ -45,7 +45,9 @@ class AccountController extends BaseController {
             'email' => array('required', 'email'), //TODO make sure is unique to avoid double entry errors
             'telefono' => 'required',
             'cf' => 'required', //TODO regex or filter to validate cf
-            'password' => array('required', 'confirmed')
+            'password' => array('required', 'confirmed'),
+            'privacy' => 'accepted',
+            'privacy2' => 'accepted'
         );
 
         //TODO move messages in a global space
