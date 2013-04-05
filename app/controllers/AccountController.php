@@ -19,7 +19,6 @@ class AccountController extends BaseController {
                 ->with('flash_notice', 'You are successfully logged in.');
         }
         
-        // authentication failure! lets go back to the login page
         return Redirect::route('login')
             ->with('flash_error', 'Your username/password combination was incorrect.')
             ->withInput();
@@ -49,6 +48,7 @@ class AccountController extends BaseController {
             'password' => array('required', 'confirmed')
         );
 
+        //TODO move messages in a global space
         $messages = array(
             'required' => 'Il campo :attribute è obbligatorio',
             'email' => 'L\'indirizzo email deve essere valido',
