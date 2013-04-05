@@ -6,24 +6,21 @@
     @if (Session::has('flash_error'))
         <div class="alert alert-error">{{ Session::get('flash_error') }}</div>
     @endif
-<<<<<<< HEAD
-        <div class="span6">
-=======
     <h2>Collegati</h2>
-    {{ Form::open(array('url' => 'login', 'method' => 'POST', 'class' => 'form-horizontal')) }}
-        <div class="control-group">
-            {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('email', Input::old('email')) }}</div>
-        </div>
-        <div class="control-group">
-            {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password') }}</div>
-        </div>
-        <div class="control-group">
-            <div class="controls">{{ Form::submit('Accedi', array('class' => 'button')) }}</div>
-        </div>
->>>>>>> 2e12ff8f828932a48340cc69685e47ae589d786c
-    {{ Form::close() }}
+        <div class="span6">
+            {{ Form::open(array('url' => 'login', 'method' => 'POST', 'class' => 'form-horizontal')) }}
+                <div class="control-group">
+                    {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::text('email', Input::old('email')) }}</div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
+                    <div class="controls">{{ Form::text('password') }}</div>
+                    </div>
+                <div class="control-group">
+                    <div class="controls">{{ Form::submit('Accedi', array('class' => 'button')) }}</div>
+                </div>
+            {{ Form::close() }}
         </div>
         <div class="span5">
             <p><a href="remindpassword">Hai dimenticato la password  ? Clicca qui</a></p>
