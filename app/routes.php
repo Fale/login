@@ -32,7 +32,8 @@ Route::get('remindpassword/{token}', function($token) { return View::make('reset
 Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
 
 // Profile
-Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
+//Route::get('profile', array('as' => 'profile', function() {  return View::make('profile'); }))->before('auth');
+Route::get('profile', array('as' => 'profile', function() {  return Redirect::to('http://comitati.fareinrete.org'); }))->before('auth');
 
 // Document
 Route::get('profile/document', array('as' => 'documents', function() {  return View::make('document/list'); }))->before('auth');
