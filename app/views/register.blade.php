@@ -38,11 +38,11 @@
         </div>
         <div class="control-group">
             {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password') }}</div>
+            <div class="controls">{{ Form::password('password') }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('password_confirmation', 'Ripeti Password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password_confirmation') }}</div>
+            <div class="controls">{{ Form::password('password_confirmation') }}</div>
         </div>
         <div class="control-group">
             <b>Informativa sul trattamento dei dati personali</b>

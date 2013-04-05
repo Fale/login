@@ -15,7 +15,7 @@
                 </div>
                 <div class="control-group">
                     {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
-                    <div class="controls">{{ Form::text('password') }}</div>
+                    <div class="controls">{{ Form::password('password') }}</div>
                     </div>
                 <div class="control-group">
                     <div class="controls">{{ Form::submit('Accedi', array('class' => 'button')) }}</div>
