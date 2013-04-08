@@ -14,16 +14,6 @@
     <div id="wrapper">
         <div id="header">
             <p><img src="{{ URL::asset('images/logo.png') }}" /></p>
-            <p style="margin-left:3%;">
-               <a class="btn btn-default" href="http://www.fareinrete.org">Home</a>
-               <a class="btn btn-default" href="http://comitati.fareinrete.org">Blog</a>
-               <a class="btn btn-default" href="http://login.fareinrete.org">0: Registrati</a>
-               <a class="btn btn-default" href="http://forum.fareinrete.org/forum">1: Forum nazionale</a>
-               <a class="btn btn-default" href="http://liquid.fareinrete.org">2: Piattaforma di Voto</a>
-               <a class="btn btn-default" href="http://wiki.fareinrete.org">Istruzioni per l'uso</a>
-               <a class="btn btn-default" href="http://comitati.fareinrete.org">Comitati</a>
-            </p>
-
         </div>
         <div class="container">
             @if(Session::has('flash_activation'))
@@ -43,8 +33,8 @@
                     <td width="20%" style="vertical-align:middle"><img src="{{ URL::asset('images/footer_logo.png') }}" alt="Fermare il Declino" width="122" height="60" border="0"></td>
                     <td width="15%"><a title="" href="http://www.fermareildeclino.it/cambiare-la-politica-fermare-il-declino-tornare-a-crescere" target="_blank">CHI SIAMO</a></td>
                     <td width="25%"><a title="" href="http://www.fermareildeclino.it/cambiare-la-politica-fermare-il-declino-tornare-a-crescere" target="_blank">IL NOSTRO MANIFESTO</a></td>
-                    <td width="20%"><a title="" href="http://www.fermareildeclino.it/adesioni" target="_blank">I PRIMI FIRMATARI</a></td>
-                    <td width="20%"><a title="" href="http://www.fermareildeclino.it/tutti-gli-aderenti" target="_blank">TUTTI GLI ADERENTI</a></td>
+                    <td width="20%"><a title="" href="" target="_blank"></a><a title="" href="http://comitati.fareinrete.org/le-10-proposte/" target="">PROPOSTE</a></td>
+                    <td width="20%"><a title="" href="" target="_blank"><a href="mailto:lqfbapptest@gmail.com">E-MAIL</a></td>
                 </tr>
             </table>
         </div>
