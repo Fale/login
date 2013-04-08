@@ -129,6 +129,7 @@ class AccountController extends BaseController {
         if (EmailCheck::checkToken($token)) {
             if (Session::has('flash_activation'))
                 Session::forget('flash_activation');
+            Phpbb::activeUser(Auth::user()->id);
             return Redirect::route('profile')
                 ->with('flash_notice', 'Account validato correttamente');
         }
