@@ -45,6 +45,7 @@ class AccountController extends BaseController {
             'email' => array('required', 'email'), //TODO make sure is unique to avoid double entry errors
             'telefono' => 'required',
             'cf' => 'required', //TODO regex or filter to validate cf
+            'tesserato' => 'required',
             'password' => array('required', 'confirmed'),
             'privacy' => 'accepted',
             'privacy2' => 'accepted'
@@ -78,7 +79,9 @@ class AccountController extends BaseController {
                 'surname' => Input::get('cognome'),
                 'city' => Input::get('citta'),
                 'province' => Input::get('provincia'),
-                'phone' => Input::get('telefono')
+                'phone' => Input::get('telefono'),
+                'tesserato' => Input::get('tesserato'),
+                'comitato' => Input::get('comitato')
             )))
             {
                 Phpbb::changePassword($user->id, $user->email, Input::get('password'));
