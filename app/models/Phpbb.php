@@ -25,15 +25,13 @@ class Phpbb extends Eloquent {
             $user->user_email = $email;
             $user->save();
         }
-        var_dump( md5($password));
-        var_dump( $password);
     }
 
     public static function activeUser($id)
     {
         $lu = User::find($id);
         $lui = UserInfo::find($id);
-        if (Phpbb::where('user_email', $email)->update(array('user_active' => 1)))
+        if (Phpbb::where('user_email', $lu->email)->update(array('user_active' => 1)))
             return 1;
         else
             return 0;
