@@ -25,6 +25,8 @@ class CreateUserInfosTable extends Migration {
             $t->string('zipcode', 10);
             $t->string('country', 30);
             $t->string('phone', 16);
+            $t->string('comitato', 16);
+            $t->boolean('tesserato');
             $t->timestamps();
         });
 	}

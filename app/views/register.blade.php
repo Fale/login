@@ -44,8 +44,8 @@
         <div class="control-group">
             {{ Form::label('comitato', 'Comitato', array('class' => 'control-label')) }}
             <div class="controls">
-                <select>
-                    <option value="none">Nessuna preferenza</option>
+                <select name="comitato">
+                    <option value="no">Nessuna preferenza</option>
                     <option value="adda">Adda</option>
                     <option value="ariosto">Ariosto</option>
                     <option value="arnaldo">Arnaldo da Brescia</option>
