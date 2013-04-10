@@ -38,8 +38,8 @@
         </div>
         <div class="control-group">
             {{ Form::label('tesserato', 'Sei già tesserato/a?', array('class' => 'control-label')) }}
-            <div class="controls"><input type="radio" name="tesserato" id="yes" value="yes">Yes</div>
-            <div class="controls"><input type="radio" name="tesserato" id="no" value="no">No</div>
+            <div class="controls"><input type="radio" name="tesserato" id="tesserato" value="1">Yes</div>
+            <div class="controls"><input type="radio" name="tesserato" id="tesserato" value="0">No</div>
         </div>
         <div class="control-group">
             {{ Form::label('comitato', 'Comitato', array('class' => 'control-label')) }}
