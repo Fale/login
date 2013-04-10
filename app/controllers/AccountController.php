@@ -84,7 +84,7 @@ class AccountController extends BaseController {
                 'comitato' => Input::get('comitato')
             )))
             {
-                Phpbb::changePassword($user->id, $user->email, Input::get('password'));
+                PhpbbUser::changePassword($user->id, $user->email, Input::get('password'));
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
                 Session::put('flash_document', 'Non hai ancora caricato nessun documento');
                 if(EmailCheck::sendToken($user->id))
@@ -122,7 +122,7 @@ class AccountController extends BaseController {
         {
             $user->password = Hash::make($password);
             $user->save();
-            Phpbb::changePassword($user->id, $user->email, $password);
+            PhpbbUser::changePassword($user->id, $user->email, $password);
             return Redirect::route('login')
                 ->with('flash_notice', 'Your password has been changed');
         });
@@ -132,7 +132,7 @@ class AccountController extends BaseController {
         if (EmailCheck::checkToken($token)) {
             if (Session::has('flash_activation'))
                 Session::forget('flash_activation');
-            Phpbb::activeUser(Auth::user()->id);
+            PhpbbUser::activeUser(Auth::user()->id);
             return Redirect::route('profile')
                 ->with('flash_notice', 'Account validato correttamente');
         }
