@@ -16,6 +16,11 @@ class Groups extends Migration {
             $table->integer('group')->after('comitato');
         });
 
+        Schema::table('groups', function($table)
+        {
+            $table->string('province', 2)->after('zip_code');
+        });
+
         $conversion = array(
             "no" => '0',
             "adda" => '1',

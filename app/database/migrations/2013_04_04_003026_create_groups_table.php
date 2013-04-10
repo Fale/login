@@ -15,7 +15,6 @@ class CreateGroupsTable extends Migration {
             $t->increments('id');
             $t->string('name');
             $t->string('zip_code');
-            $t->string('province', 2);
             $t->timestamps();
         });
 	}
