@@ -57,8 +57,13 @@ class Groups extends Migration {
         foreach(UserInfo::get() as $user)
         {
             if (!$user->group) {
-                $new = $conversion[$user->comitato];
-                $user->update(array('group' => $new));
+                if ($user->comitato == "")
+                    $user->update(array('group' => 0));
+                else
+                {
+                    $new = $conversion[$user->comitato];
+                    $user->update(array('group' => $new));
+                }
             }
         }
 
