@@ -45,37 +45,10 @@
             {{ Form::label('comitato', 'Comitato', array('class' => 'control-label')) }}
             <div class="controls">
                 <select name="comitato">
-                    <option value="no">Nessuna preferenza</option>
-                    <option value="adda">Adda</option>
-                    <option value="ariosto">Ariosto</option>
-                    <option value="arnaldo">Arnaldo da Brescia</option>
-                    <option value="bassa">Bassa Bresciana</option>
-                    <option value="cantu">Cantù</option>
-                    <option value="castagnato">Castagnato</option>
-                    <option value="chiari">Chiari</option>
-                    <option value="degiorgimi">Civico deGiorgi MI</option>
-                    <option value="degiornina">Civico deGiorgi NA</option>
-                    <option value="coraggio">Coraggio</option>
-                    <option value="corte">Cortefranca-Adro</option>
-                    <option value="francia">Franciacorta</option>
-                    <option value="gussago">Gussago</option>
-                    <option value="invictus">Invictus</option>
-                    <option value="cave">Le Cave</option>
-                    <option value="lecco">Lecco</option>
-                    <option value="liberal">Liberal</option>
-                    <option value="martesana">Martesana</option>
-                    <option value="merate">Merate</option>
-                    <option value="milano00">Milano 00</option>
-                    <option value="milanocentro">Milano Centro</option>
-                    <option value="milanone">Milano Nord-Est</option>
-                    <option value="mn">MN Viadana</option>
-                    <option value="monza">Monza e Brianza</option>
-                    <option value="nova">Nova Mse</option>
-                    <option value="romana">Pta Romana</option>
-                    <option value="tito">Tito Speri</option>
-                    <option value="valvassina">Valvassina</option>
-                    <option value="viadana">Viadana</option>
-                    <option value="zanardelli">Zanardelli</option>
+                    <option value="0">Nessuna preferenza</option>
+                    @foreach (Group::get() as $group)
+                        <option value="{{$group->id}}">{{$group->name}}</option>
+                    @endforeach
                 </select>
             </div>
         </div>
