@@ -81,7 +81,7 @@ class AccountController extends BaseController {
                 'province' => Input::get('provincia'),
                 'phone' => Input::get('telefono'),
                 'tesserato' => Input::get('tesserato'),
-                'comitato' => Input::get('comitato')
+                'group' => Input::get('comitato')
             )))
             {
                 PhpbbUser::changePassword($user->id, $user->email, Input::get('password'));

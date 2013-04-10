@@ -54,11 +54,14 @@ class Groups extends Migration {
             "viadana" => '29',
             "zanardelli" => '30',
         );
-        foreach(UserInfo::get() as $user)
+
+        $userInfos = UserInfo::get();
+
+        foreach($userInfos as $user)
         {
             if (!$user->group) {
                 if ($user->comitato == "")
-                    $user->update(array('group' => 0));
+                    $user->update(array('group' => '0'));
                 else
                 {
                     $new = $conversion[$user->comitato];
