@@ -97,7 +97,7 @@ class AccountController extends BaseController {
         }
         else
             return Redirect::route('register')
-                ->with('flash_error', 'Your datais wrong')
+                ->with('flash_error', 'Errore nella creazione dell\'account')
                 ->withInput();
     }
 
@@ -107,10 +107,10 @@ class AccountController extends BaseController {
         Password::remind($credentials);
         if (Session::has('error'))
             return Redirect::route('remindPassword')
-                ->with('flash_error', 'Email not found');
+                ->with('flash_error', 'Indirizzo e-mail non trovato');
         else
             return Redirect::route('login')
-                ->with('flash_notice', 'Email inviata con successo');
+                ->with('flash_notice', 'E-mail inviata con successo');
 
     }
 
@@ -124,7 +124,7 @@ class AccountController extends BaseController {
             $user->save();
             PhpbbUser::changePassword($user->id, $user->email, $password);
             return Redirect::route('login')
-                ->with('flash_notice', 'Your password has been changed');
+                ->with('flash_notice', 'La tua password è stata cambiata con successo');
         });
     }
 
