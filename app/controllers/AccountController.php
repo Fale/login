@@ -51,14 +51,7 @@ class AccountController extends BaseController {
             'privacy2' => 'accepted'
         );
 
-        //TODO move messages in a global space
-        $messages = array(
-            'required' => 'Il campo :attribute è obbligatorio',
-            'email' => 'L\'indirizzo email deve essere valido',
-            'confirmed' => 'Le password devono combaciare'
-        );
-
-        $validator = Validator::make(Input::all(), $rules, $messages);
+        $validator = Validator::make(Input::all(), $rules);
 
         if( $validator->fails())
             return Redirect::route('register')
