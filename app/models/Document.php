@@ -11,4 +11,9 @@ class Document extends Eloquent {
         $documents = Document::where('user_id', $userId)->where('hidden',false)->get();
         return $documents;
     }
+
+    public function typeName()
+    {
+        return DocumentType::find($this->type)->name;
+    }
 }

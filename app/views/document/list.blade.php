@@ -7,19 +7,25 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>type</th>
+                <th>Tipo</th>
+                <th>Numero</th>
+                <th>Rilasciata il</th>
+                <th>Scadenza</th>
             </tr>
         </thead>
         <tbody>
     @foreach (Document::getAll() as $document)
             @if ($document->verified)
                 <tr class="success">
+            @elseif ($document->expiry < time())
+                <tr class="error">
             @else
                 <tr>
             @endif
-                <td>{{ $document->id }}</td>
-                <td>{{ $document->type}}</td>
+                <td>{{ $document->typeName()}}</td>
+                <td>{{ $document->number }}</td>
+                <td>{{ $document->provided }}</td>
+                <td>{{ $document->expiry }}</td>
             </tr>
     @endforeach
         </tbody>

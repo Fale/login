@@ -11,4 +11,8 @@ class DocumentType extends Eloquent {
         return $output;
     }
 
+    public function documents()
+    {
+        return $this->hasMany('Document', 'type');
+    }
 }
