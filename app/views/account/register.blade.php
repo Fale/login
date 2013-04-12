@@ -22,7 +22,7 @@
         </div>
         <div class="control-group">
             {{ Form::label('provincia', 'Provincia', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('provincia', Input::old('provincia')) }}</div>
+            <div class="controls">{{ Form::text('provincia', Input::old('provincia'), array('maxlength' => '2')) }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
