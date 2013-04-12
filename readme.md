@@ -9,3 +9,9 @@
 If you want the database seeds:
 
     php artisan db:seed
+
+### ChangeLog
+The ChangeLog file is foundable [here](changelog.md) (en).
+
+### Milestones
+The Milestone file is foundable [here](milestones.md) (it only).
