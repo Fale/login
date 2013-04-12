@@ -8,6 +8,22 @@ class DocumentController extends BaseController {
             $user = Input::get('user_id');
         else
             $user = Auth::user()->id;
+
+        $rules = array(
+            'type' => 'required',
+            'number' => 'required',
+            'provider' => 'required',
+            'provided' => array('required', 'date'),
+            'expiry' => array('required', 'date')
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if( $validator->fails())
+            return Redirect::route('documentAdd')
+                ->withErrors($validator)
+                ->withInput();
+
         $document = array(
             'user_id' => $user,
             'type' => Input::get('type'),
@@ -16,6 +32,7 @@ class DocumentController extends BaseController {
             'provided' => Input::get('provided'),
             'expiry' => Input::get('expiry')
         );
+
         if (Document::insert($document)) {
             if (Session::has('flash_document'))
                 Session::forget('flash_document');

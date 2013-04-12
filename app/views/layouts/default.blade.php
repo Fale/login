@@ -9,7 +9,7 @@
         <link href="{{ URL::asset('css/datepicker.css') }}" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <link href="{{ URL::asset('js/bootstrap-datepicker.js') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ URL::asset('js/bootstrap-datepicker.js') }}"></script>
     </style>
   </head>
   <body>

@@ -3,7 +3,7 @@
 @section('title')Documenti @stop
 
 @section('content')
-    <h2>I tuoi documenti</h2>
+    <h2>I tuoi documenti<a class="btn btn-primary pull-right" href="{{URL::route('addDocument')}}">Agiungi uno</a></h2>
     <table class="table">
         <thead>
             <tr>

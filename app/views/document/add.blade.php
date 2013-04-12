@@ -7,7 +7,7 @@
     {{ Form::open(array('url' => 'profile/document', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('type', 'Tipo documento', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('type', Input::old('type')) }}</div>
+            <div class="controls">{{ Form::select('type', array('1' => 'Carta di Identità', '2' => 'Patente', '3' => 'Passaporto'), Input::old('type')) }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('number', 'Numero', array('class' => 'control-label')) }}
@@ -19,14 +19,15 @@
         </div>
         <div class="control-group">
             {{ Form::label('provided', 'Data di rilascio', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('provided', Input::old('provided')) }}</div>
+            <div class="controls">{{ Form::text('provided', Input::old('provided'), array('class' => 'datepicker')) }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('expiry', 'Data di scadenza', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('expiry', Input::old('expiry')) }}</div>
+            <div class="controls">{{ Form::text('expiry', Input::old('expiry'), array('class' => 'datepicker')) }}</div>
         </div>
         <div class="control-group">
             <div class="controls">{{ Form::submit('Aggiungi documento', array('class' => 'button')) }}</div>
         </div>
     {{ Form::close() }}
+    <script>$('.datepicker').datepicker()</script>
 @stop
