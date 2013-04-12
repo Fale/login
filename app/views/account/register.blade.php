@@ -46,7 +46,7 @@
             <div class="controls">
                 <select name="comitato">
                     <option value="0">Nessuna preferenza</option>
-                    @foreach (Group::get() as $group)
+                    @foreach (Group::select('id','name')->get() as $group)
                         <option value="{{$group->id}}">{{$group->name}}</option>
                     @endforeach
                 </select>
