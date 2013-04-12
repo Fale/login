@@ -7,7 +7,7 @@
     {{ Form::open(array('url' => 'profile/document', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('type', 'Tipo documento', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::select('type', array('1' => 'Carta di Identità', '2' => 'Patente', '3' => 'Passaporto'), Input::old('type')) }}</div>
+            <div class="controls">{{ Form::select('type', DocumentType::getArray(), Input::old('type')) }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('number', 'Numero', array('class' => 'control-label')) }}
