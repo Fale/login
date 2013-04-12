@@ -44,12 +44,7 @@
         <div class="control-group">
             {{ Form::label('comitato', 'Comitato', array('class' => 'control-label')) }}
             <div class="controls">
-                <select name="comitato">
-                    <option value="0">Nessuna preferenza</option>
-                    @foreach (Group::select('id','name')->get() as $group)
-                        <option value="{{$group->id}}">{{$group->name}}</option>
-                    @endforeach
-                </select>
+                {{ Form::select('comitato', Group::getArray(array('0' => "Nessuna preferenza")), Input::old('comitato')) }}
             </div>
         </div>
         <div class="control-group">
