@@ -42,7 +42,7 @@ class AccountController extends BaseController {
             'cognome' => 'required',
             'citta' => 'required',
             'provincia' => 'required', //TODO two letters province
-            'email' => array('required', 'email'), //TODO make sure is unique to avoid double entry errors
+            'email' => array('required', 'email', 'unique:users,email'),
             'telefono' => 'required',
             'cf' => 'required', //TODO regex or filter to validate cf
             'tesserato' => 'required',
