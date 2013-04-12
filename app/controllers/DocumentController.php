@@ -13,14 +13,14 @@ class DocumentController extends BaseController {
             'type' => 'required',
             'number' => 'required',
             'provider' => 'required',
-            'provided' => array('required', 'date'),
-            'expiry' => array('required', 'date')
+            'provided' => array('required', 'date_format:d/m/Y'),
+            'expiry' => array('required', 'date_format:d/m/Y')
         );
 
         $validator = Validator::make(Input::all(), $rules);
 
         if( $validator->fails())
-            return Redirect::route('documentAdd')
+            return Redirect::route('addDocument')
                 ->withErrors($validator)
                 ->withInput();
 
@@ -29,18 +29,18 @@ class DocumentController extends BaseController {
             'type' => Input::get('type'),
             'number' => Input::get('number'),
             'provider' => Input::get('provider'),
-            'provided' => Input::get('provided'),
-            'expiry' => Input::get('expiry')
+            'provided' => Document::data(Input::get('provided')),
+            'expiry' => Document::data(Input::get('expiry'))
         );
 
-        if (Document::insert($document)) {
+        if (Document::create($document)) {
             if (Session::has('flash_document'))
                 Session::forget('flash_document');
             return Redirect::route('documents')
                 ->with('flash_notice', 'Documento inserito con successo');
         }
         else
-            return Redirect::route('documentAdd')
+            return Redirect::route('addDocument')
                 ->with('flash_error', 'Errore nell\'inserimento');
 	}
 

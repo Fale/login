@@ -16,4 +16,20 @@ class Document extends Eloquent {
     {
         return DocumentType::find($this->type)->name;
     }
+
+    public static function data($data, $return = 0)
+    {
+        if ($return)
+        {
+            $rsl = explode ('-',$data);
+            $rsl = array_reverse($rsl);
+            return implode($rsl,'/');
+        }
+        else
+        {
+            $rsl = explode ('/',$data);
+            $rsl = array_reverse($rsl);
+            return implode($rsl,'-');
+        }
+    }
 }
