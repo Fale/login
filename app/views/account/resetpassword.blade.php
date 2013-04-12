@@ -23,6 +23,6 @@
         <div class="control-group">
             <div class="controls">{{ Form::submit('Nuova password', array('class' => 'button')) }}</div>
         </div>
-        {{ Form::text('token', $token, array('class' => 'hidden')) }}
+        {{ Form::hidden('token', $token) }}
     {{ Form::close() }}
 @stop
