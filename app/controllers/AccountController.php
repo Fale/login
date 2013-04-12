@@ -41,7 +41,7 @@ class AccountController extends BaseController {
             'nome' => 'required',
             'cognome' => 'required',
             'citta' => 'required',
-            'provincia' => 'required', //TODO two letters province
+            'provincia' => array('required', 'size:2'),
             'email' => array('required', 'email', 'unique:users,email'),
             'telefono' => 'required',
             'cf' => array('required', 'regex:"[a-zA-Z]{6}[0-9]{2}[a-zA-Z][0-9]{2}[a-zA-Z][0-9]{3}[a-zA-Z]"s'), //TODO filter to validate cf
