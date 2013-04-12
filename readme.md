@@ -7,4 +7,5 @@
     php composer.phar install
     php artisan migrate:install
 If you want the database seeds:
+
     php artisan db:seed
