@@ -16,14 +16,14 @@
                 <div class="control-group">
                     {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
                     <div class="controls">{{ Form::password('password') }}</div>
-                    </div>
+                </div>
+                <div class="controls"><p><small><a href="remindpassword">Hai dimenticato la password  ? Clicca qui</a></small></p></div>
                 <div class="control-group">
                     <div class="controls">{{ Form::submit('Accedi', array('class' => 'button')) }}</div>
                 </div>
             {{ Form::close() }}
         </div>
         <div class="span5">
-            <p><a href="remindpassword">Hai dimenticato la password  ? Clicca qui</a></p>
             <input name="Submit2" type="button" class="button" value="VOGLIO REGISTRARMI AL SITO" onClick="self.location='register';">
         </div>
 @stop
