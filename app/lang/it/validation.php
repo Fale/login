@@ -13,8 +13,8 @@ return array(
 	|
 	*/
 
-	"accepted"        => "The :attribute must be accepted.",
-	"active_url"      => "The :attribute is not a valid URL.",
+	"accepted"        => ":attribute deve essere accettato.",
+	"active_url"      => "Il :attribute non è valido.",
 	"after"           => "The :attribute must be a date after :date.",
 	"alpha"           => "The :attribute may only contain letters.",
 	"alpha_dash"      => "The :attribute may only contain letters, numbers, and dashes.",
@@ -50,16 +50,16 @@ return array(
 	),
 	"not_in"           => "The selected :attribute is invalid.",
 	"numeric"         => "The :attribute must be a number.",
-	"regex"           => "The :attribute format is invalid.",
+	"regex"           => "Il formato del campo :attribute non è valido.",
 	"required"        => "Il campo :attribute è obbligatorio.",
 	"required_with"   => "The :attribute field is required when :values is present.",
 	"same"            => "The :attribute and :other must match.",
 	"size"            => array(
-		"numeric"    => "The :attribute must be :size.",
+		"numeric"    => "Il campo :attribute deve contenere :size caratteri.",
 		"file"       => "The :attribute must be :size kilobytes.",
 		"string"     => "The :attribute must be :size characters.",
 	),
-	"unique"          => "The :attribute has already been taken.",
+	"unique"          => "Il valore del campo :attribute è già stato usato in precedenza.",
 	"url"             => "The :attribute format is invalid.",
 
 	/*
