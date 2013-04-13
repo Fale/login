@@ -3,6 +3,8 @@
 @section('title')Documenti @stop
 
 @section('content')
+    <div class="row">
+        <div class="span9">
     <h2>I tuoi documenti<a class="btn btn-primary pull-right" href="{{URL::route('addDocument')}}">Agiungi uno</a></h2>
     <table class="table">
         <thead>
@@ -30,4 +32,7 @@
     @endforeach
         </tbody>
     </table>
+        </div>
+        @include('account.sidebar')
+   </div>
 @stop
