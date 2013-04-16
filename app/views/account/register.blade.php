@@ -7,7 +7,7 @@
     @foreach ($errors->all() as $message)
         <div class="alert alert-error">{{ $message }}</div>
     @endforeach
-    {{ Form::open(array('url' => 'register', 'method' => 'POST', 'class' => 'form-horizontal')) }}
+    {{ Form::open(array('url' => 'register', 'method' => 'POST', 'class' => 'form-horizontal', 'id' => 'registration-form')) }}
         <div class="control-group">
             {{ Form::label('nome', 'Nome', array('class' => 'control-label')) }}
             <div class="controls">{{ Form::text('nome', Input::old('nome')) }}</div>
@@ -81,4 +81,34 @@
             <div class="controls">{{ Form::submit('Registrati', array('class' => 'button')) }}</div>
         </div>
     {{ Form::close() }}
+
+
+<!-- Script for email validation -->
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" >
+$(document).ready(function() {
+
+// regular expression for valid email
+$.validator.addMethod("email", function(value, element) 
+   { 
+        return this.optional(element) || /^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/i.test(value); 
+   }, "Inserire un indirizzo email valido.");
+
+$("#registration-form").validate();
+
+});
+</script>
+<style>
+label.error 
+{
+font-size:11px;
+background-color:#cc0000;
+color:#FFFFFF;
+padding:3px;
+margin-left:5px;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px; 
+}
+</style>
+
 @stop
