@@ -51,8 +51,8 @@ class Groups extends Migration {
             "romana" => '26',
             "tito" => '27',
             "valvassina" => '28',
-            "viadana" => '29',
-            "zanardelli" => '30',
+            "viadana" => '23',
+            "zanardelli" => '29',
         );
 
         $userInfos = UserInfo::get();
@@ -187,7 +187,7 @@ class Groups extends Migration {
             'province' => '',
         ));
         Group::create(array(
-            'name' => 'MN Viadana',
+            'name' => 'Einaudi-Viadana',
             'zip_code' => '',
             'province' => '',
         ));
@@ -213,11 +213,6 @@ class Groups extends Migration {
         ));
         Group::create(array(
             'name' => 'Valvassina',
-            'zip_code' => '',
-            'province' => '',
-        ));
-        Group::create(array(
-            'name' => 'Viadana',
             'zip_code' => '',
             'province' => '',
         ));
