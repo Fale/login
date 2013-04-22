@@ -14,11 +14,11 @@
         </div>
         <div class="control-group">
             {{ Form::label('password', 'Password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password') }}</div>
+            <div class="controls">{{ Form::password('password') }}</div>
         </div>
         <div class="control-group">
             {{ Form::label('password_confirmation', 'Ripeti la password', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('password_confirmation') }}</div>
+            <div class="controls">{{ Form::password('password_confirmation') }}</div>
         </div>
         <div class="control-group">
             <div class="controls">{{ Form::submit('Nuova password', array('class' => 'button')) }}</div>
