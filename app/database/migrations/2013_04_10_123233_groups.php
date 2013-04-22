@@ -226,6 +226,21 @@ class Groups extends Migration {
             'zip_code' => '',
             'province' => '',
         ));
+        Group::create(array(
+            'name' => 'Bergamo centro',
+            'zip_code' => '',
+            'province' => '',
+        ));
+        Group::create(array(
+            'name' => 'Treviglio',
+            'zip_code' => '',
+            'province' => '',
+        ));
+        Group::create(array(
+            'name' => 'Basso Garda',
+            'zip_code' => '',
+            'province' => '',
+        ));
     }
 
     /**
