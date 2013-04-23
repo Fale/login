@@ -5,7 +5,7 @@ class Group extends Eloquent {
 
     public static function getArray( $output = Array())
     {
-        foreach (Group::select('id','name')->get() as $group)
+        foreach (Group::select('id','name')->orderBy('name')->get() as $group)
             $output[$group->id] = $group->name;
         return $output;
     }
