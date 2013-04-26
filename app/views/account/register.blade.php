@@ -7,6 +7,7 @@
     @foreach ($errors->all() as $message)
         <div class="alert alert-error">{{ $message }}</div>
     @endforeach
+    <div class="span7">
     {{ Form::open(array('url' => 'register', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('nome', 'Nome', array('class' => 'control-label')) }}
@@ -57,6 +58,11 @@
             {{ Form::label('password_confirmation', 'Ripeti Password', array('class' => 'control-label')) }}
             <div class="controls">{{ Form::password('password_confirmation') }}</div>
         </div>
+    </div>
+    <div class="span-5">
+    <img src="http://www.italianetpubblicita.it/img/italia.gif" width="300" border="0" align="right" hspace="20">
+    </div>
+    <div style="clear:both"></div>
         <div class="control-group">
             <b>Informativa sul trattamento dei dati personali</b>
             <p>Integrazione dell’Informativa ex art.13 D.Lgs 30 giugno 2003, n.196 La presente informativa integra quella già rilasciata, costituente la Privacy Policy del sito, pubblicato all’indirizzo <a href="http://fareinrete.it/regolamenti/privacy/">fareinrete.it/regolamenti/privacy</a></p>
