@@ -27,7 +27,7 @@
         </div>
         <div class="control-group">
             {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('email', Input::old('email')) }}</div>
+            <div class="controls">{{ Form::text('email', Input::old('email')) }} (opzionale)</div>
         </div>
         <div class="control-group">
             {{ Form::label('telefono', 'Telefono', array('class' => 'control-label')) }}
@@ -35,7 +35,7 @@
         </div>
         <div class="control-group">
             {{ Form::label('cf', 'Codice Fiscale', array('class' => 'control-label')) }}
-            <div class="controls">{{ Form::text('cf', Input::old('cf')) }}</div>
+            <div class="controls">{{ Form::text('cf', Input::old('cf')) }}(opzionale)</div>
         </div>
         <div class="control-group">
             {{ Form::label('tesserato', 'Sei già tesserato/a?', array('class' => 'control-label')) }}
