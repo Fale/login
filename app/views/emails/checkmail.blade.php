@@ -12,6 +12,7 @@
 
             <p><small>Questa mail ti viene mandata per assicurarti che nessuno utilizzi il tuo indirizzo per registrazioni non autorizzate. Se tu non hai effettuato da poco la procedura di registrazione sul sito di FAREinRETE.org invia una mail a <a href="mailto:aiuto@fare2.it">aiuto@fare2.it</a> e nell'oggetto indica "Cancellate il mio indirizzo email perché usato fraudolentemente".</small></p>
 
+            <p><b>Riceverai presto una mail con la data e l'ora di inizio del dibattito pre-congressuale, in cui ti verra' anche spiegato come partecipare e porre le tue domande ai candidati di FARE per UNIRE.</b></p>
             <p>A presto<br />
             Fare 2.0NET</p>
 		</div>
