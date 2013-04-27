@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="span-5">
-    <img src="http://www.italianetpubblicita.it/img/italia.gif" width="300" border="0" align="right" hspace="20">
+    <img src="http://www.italianetpubblicita.it/img/italia.gif" width="600" border="0" align="right" hspace="20">
     </div>
     <div style="clear:both"></div>
         <div class="control-group">
