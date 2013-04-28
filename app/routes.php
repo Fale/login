@@ -32,8 +32,8 @@ Route::get('remindpassword/{token}', function($token) { return View::make('accou
 Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
 
 // Profile
-Route::get('profile', array('as' => 'profile', function() {  return Redirect::to('http://comitati.fareinrete.it'); }))->before('auth');
-//Route::get('profile', array('as' => 'profile', function() {  return View::make('account.profile'); }))->before('auth');
+//Route::get('profile', array('as' => 'profile', function() {  return Redirect::to('http://fareinrete.it'); }))->before('auth');
+Route::get('profile', array('as' => 'profile', function() {  return View::make('account.dummy'); }))->before('auth');
 
 // Document
 Route::get('profile/document', array('as' => 'documents', function() {  return View::make('document/list'); }))->before('auth');
