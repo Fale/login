@@ -7,7 +7,6 @@
     <div class="row">
         <div class="span9">
             <h2>Benvenuto {{$user->name}} {{$user->surname}}!</h2>
-            <p>Grazie per esserti iscritto e ti invitiamo a guardare la tua mail per confermarla.</p>
         </div>
     </div>
 @stop
