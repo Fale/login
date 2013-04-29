@@ -21,8 +21,8 @@
     </head>
   <body>
     <div id="wrapper">
-        <div>
-            <p><img src="{{ URL::asset('images/top.jpg') }}" /></p>
+        <div id="header">
+            <p><img src="{{-- URL::asset('images/logo.png') --}}" /></p>
         </div>
         <div class="container">
             @if(Session::has('flash_activation'))
@@ -39,10 +39,10 @@
         <div id="footer">
             <table width="100%" border="0" cellspacing="0" cellpadding="3">
                 <tr>
-                    <td width="20%" style="vertical-align:middle"><img src="{{ URL::asset('images/footer_logo.png') }}" alt="Fermare il Declino" width="122" height="60" border="0"></td>
-                    <td width="15%"><a title="" href="http://fareinrete.it/chi-siamo" target="_blank">CHI SIAMO</a></td>
-                    <td width="25%"><a title="" href="http://fareinrete.it/manifesto-2" target="_blank">IL NOSTRO MANIFESTO</a></td>
-                    <td width="20%"><a title="" href="" target="_blank"></a><a title="" href="http://fareinrete.it/le-10-proposte/" target="">PROPOSTE</a></td>
+                    <td width="20%" style="vertical-align:middle"><img src="{{-- URL::asset('images/footer_logo.png') --}}" width="122" height="60" border="0"></td>
+                    <td width="15%"><a title="" href="http://fareinrete.org/chi-siamo" target="_blank">CHI SIAMO</a></td>
+                    <td width="25%"><a title="" href="http://fareinrete.org/manifesto-2" target="_blank">IL NOSTRO MANIFESTO</a></td>
+                    <td width="20%"><a title="" href="" target="_blank"></a><a title="" href="http://fareinrete.org/le-10-proposte/" target="">PROPOSTE</a></td>
                     <td width="20%"><a title="" href="" target="_blank"><a href="mailto:aiuto@fare2.it">E-MAIL</a></td>
                 </tr>
             </table>
