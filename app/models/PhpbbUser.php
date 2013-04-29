@@ -36,4 +36,14 @@ class PhpbbUser extends Eloquent {
             return 0;
     }
 
+    public static function deleteUser($id)
+    {
+        $lu = User::find($id);
+        $lui = UserInfo::find($id);
+        if (PhpbbUser::where('user_email', $lu->email)->delete())
+            return 1;
+        else
+            return 0;
+    }
+
 }

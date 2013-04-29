@@ -7,7 +7,7 @@
         <div class="alert alert-error">{{ Session::get('flash_error') }}</div>
     @endif
     <h2>Elimina l'utente</h2>
-    {{ Form::open(array('url' => 'deletemail', 'method' => 'POST', 'class' => 'form-horizontal')) }}
+    {{ Form::open(array('url' => 'delete', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('email', 'Indirizzo e-mail', array('class' => 'control-label')) }}
             <div class="controls">{{ Form::text('email', Input::old('email')) }}</div>

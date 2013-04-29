@@ -35,7 +35,7 @@ Route::post('checkmail', array('uses' => 'AccountController@askCheckMail'));
 Route::get('checkmail', array('as' => 'checkmail', function() {  return View::make(t('account.checkmail')); }))->before('auth');
 
 // Delete accounts
-Route::get('delete/{token}', array('uses' => 'AccountController@deleteMail'));
+Route::get('delete/{token}', array('uses' => 'AccountController@deleteUser'));
 Route::post('delete', array('uses' => 'AccountController@askDeleteMail'));
 Route::get('delete', array('as' => 'delete', function() {  return View::make(t('account.deletemail')); }))->before('auth');
 
