@@ -7,6 +7,7 @@
     @foreach ($errors->all() as $message)
         <div class="alert alert-error">{{ $message }}</div>
     @endforeach
+    <div class="span7">
     {{ Form::open(array('url' => 'register', 'method' => 'POST', 'class' => 'form-horizontal')) }}
         <div class="control-group">
             {{ Form::label('nome', 'Nome', array('class' => 'control-label')) }}
@@ -57,6 +58,10 @@
             {{ Form::label('password_confirmation', 'Ripeti Password', array('class' => 'control-label')) }}
             <div class="controls">{{ Form::password('password_confirmation') }}</div>
         </div>
+    </div>
+    <div class="span-5">
+    <img src="http://www.italianetpubblicita.it/img/italia.gif" width="600" border="0" align="right" hspace="20">
+    </div>
     <div style="clear:both"></div>
         <div class="control-group">
             <b>Informativa sul trattamento dei dati personali</b>
