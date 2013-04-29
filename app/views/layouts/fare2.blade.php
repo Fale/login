@@ -21,8 +21,8 @@
     </head>
   <body>
     <div id="wrapper">
-        <div>
-            <p><img src="{{ URL::asset('images/top.jpg') }}" /></p>
+        <div id="header">
+            <p><img src="{{ URL::asset('images/logo.png') }}" /></p>
         </div>
         <div class="container">
             @if(Session::has('flash_activation'))
