@@ -1,4 +1,4 @@
-@extends('layouts.' . Config::get('template'))
+@extends(t('template'))
 
 @section('title')Profilo @stop
 
@@ -8,6 +8,5 @@
         <div class="span9">
             <h2>Benvenuto {{$user->name}} {{$user->surname}}!</h2>
         </div>
-        @include('account.sidebar')
     </div>
 @stop

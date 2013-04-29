@@ -1,4 +1,4 @@
-@extends('layouts.' . Config::get('template'))
+@extends(t('template'))
 
 @section('title')Reimposta la tua password @stop
 
