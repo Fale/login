@@ -142,4 +142,28 @@ class AccountController extends BaseController {
             return Redirect::route('checkmail')
                 ->with('flash_error', 'Errore nell\'invio della mail');
     }
+
+    public function askDeleteMail()
+    {
+        if(DeleteCheck::sendToken(Auth::user()->id))
+            return Redirect::route('profile')
+                ->with('flash_notice', 'L\'email di autenticazione ti è stata rinviata correttamente');
+        else
+            return Redirect::route('checkmail')
+                ->with('flash_error', 'Errore nell\'invio della mail');
+    }
+
+    public function deleteMail()
+    {
+        if (DeleteCheck::checkToken($token)) {
+            if (Session::has('flash_activation'))
+                Session::forget('flash_activation');
+            PhpbbUser::deleteUser(Auth::user()->id);
+            return Redirect::route('home')
+                ->with('flash_notice', 'Account eliminato correttamente');
+        }
+        else
+            return Redirect::route('profile')
+                ->with('flash_error', 'Errore nell\'eliminazione dell\'account');
+    }
 }
