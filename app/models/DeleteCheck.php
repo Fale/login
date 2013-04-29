@@ -17,7 +17,7 @@ class DeleteCheck extends Eloquent {
             DeleteCheck::insert(array('user_id' => $user->id, 'token' => $data['token'], 'created_at' => date('Y-m-t H:i:s')));
 //        else
 //            EmailCheck::where('user_id', $user->id)->update(array('token' => $data['token'], 'created_at' => date('Y-m-t H:i:s')));
-        Mail::send('emails.deletemail', $data, function($m) use ($data)
+        Mail::send(t('emails.deletemail'), $data, function($m) use ($data)
         {
             $m->to($data['email'], $data['namestamp'])->subject('Rimozione account FareinRete.It');
         });
