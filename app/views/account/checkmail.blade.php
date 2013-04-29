@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.' . Config::get('template'))
 
 @section('title')Email di conferma @stop
 
