@@ -18,11 +18,61 @@
             ga('create', 'UA-40403885-1', 'fareinrete.it');
             ga('send', 'pageview');
         </script>
+        <link href='http://fonts.googleapis.com/css?family=Autour+One' rel='stylesheet' type='text/css'>
+        <style>
+            div#header {
+                background: #FFFFFF;
+            }
+            div#header div#top {
+                height: 30px;
+                background: #B3B3B3;
+                text-align: center;
+                font-size: 39px;
+                padding-top: 10px;
+                font-weight: bold;
+                color: #FFFFFF;
+            }
+            div#header div#topleft {
+                position: absolute;
+                top: 5px;
+                left: 10px;
+            }
+            div#header div#topright {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+            div#header div#middle {
+                top: 70px;
+                position: absolute;
+                width: 100%;
+                text-align: center;
+                font-size: 70px;
+                font-weight: bold;
+                color: #c90c0f;
+            }
+            div#header div#slogan {
+                position: absolute;
+                top: 110px;
+                width: 100%;
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                font-family: 'Autour One', cursive;
+            }
+            div.container {
+                margin-top:100px;
+            }
+        </style>
     </head>
   <body>
     <div id="wrapper">
-        <div>
-            <p><img src="{{ URL::asset('images/top.jpg') }}" /></p>
+        <div id="header">
+            <div id="top">FARE PER UNIRE</div>
+            <div id="topright"><img src="{{ URL::asset('images/topright.png') }}"></div>
+            <div id="topleft"><img src="{{ URL::asset('images/fare.png') }}"></div>
+            <div id="middle">AVANTI TUTTI!</div>
+            <div id="slogan">Partecipa al programma dei Comitati</div>
         </div>
         <div class="container">
             @if(Session::has('flash_activation'))
