@@ -1,7 +1,14 @@
 {
+    "name": "ppp/core",
+    "description": "A platform for e-dem",
+    "license": "proprietary",
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.0.*",
+        "intervention/image": "dev-master"
 	},
+    "require-dev": {
+        "way/generators": "dev-master"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",
