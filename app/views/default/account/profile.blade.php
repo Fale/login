@@ -8,6 +8,6 @@
         <div class="span9">
             <h2>Benvenuto {{$user->name}} {{$user->surname}}!</h2>
         </div>
-        @include('account.sidebar')
+        @include(t('account.sidebar'))
     </div>
 @stop
