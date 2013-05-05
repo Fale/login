@@ -46,7 +46,8 @@ Route::get('remindpassword/{token}', function($token) { return View::make(t('acc
 Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
 
 // Profile
-Route::get('profile', array('as' => 'profile', function() {  return View::make(t('account.profile')); }))->before('auth');
+Route::get('profile', array('as' => 'profile.index', function() {  return View::make(t('profile.index')); }))->before('auth');
+Route::get('profile/edit', array('as' => 'profile.edit', function() {  return View::make(t('profile.edit')); }))->before('auth');
 
 // Document
 Route::resource('profile/documents', 'DocumentsController');
