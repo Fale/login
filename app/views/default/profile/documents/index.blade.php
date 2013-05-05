@@ -33,6 +33,6 @@
         </tbody>
     </table>
         </div>
-        @include(t('account.sidebar'))
+        @include(t('profile.sidebar'))
    </div>
 @stop
