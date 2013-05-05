@@ -21,7 +21,7 @@ class DocumentsController extends BaseController {
      */
     public function index()
     {
-        $documents = $this->document->all();
+        $documents = $this->document->where('user_id', Auth::user()->id)->where('hidden',false)->get();
 
         return View::make(t('profile.documents.index'), compact('documents'));
     }
@@ -44,6 +44,7 @@ class DocumentsController extends BaseController {
     public function store()
     {
         $input = Input::all();
+        $input['user_id'] = Auth::user()->id;
         $validation = Validator::make($input, Document::$rules);
 
         if ($validation->passes())
