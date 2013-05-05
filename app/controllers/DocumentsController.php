@@ -55,7 +55,10 @@ class DocumentsController extends BaseController {
         {
             $this->document->create($input);
 
-            return Redirect::route('profile.documents.index');
+            if (Session::has('flash_document'))
+                Session::forget('flash_document');
+            return Redirect::route('profile.documents.index')
+                ->with('flash_notice', 'Documento inserito con successo');
         }
 
         return Redirect::route('profile.documents.create')
