@@ -15,7 +15,7 @@ class AccountController extends BaseController {
                 Session::put('flash_activation', 'Devi attivare il tuo account. Controlla la tua mail');
             if (!Document::where('user_id', Auth::user()->id)->count())
                 Session::put('flash_document', 'Non hai ancora caricato nessun documento');
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_notice', 'You are successfully logged in.');
         }
         
@@ -83,7 +83,7 @@ class AccountController extends BaseController {
                 if(EmailCheck::sendToken($user->id))
                 {
                     Auth::login($user);
-                    return Redirect::route('profile')
+                    return Redirect::route('profile.index')
                         ->with('flash_notice', 'Il tuo account è stato correttamente creato. Controlla la mail per attivare il tuo account');
                 }
             }
@@ -126,17 +126,17 @@ class AccountController extends BaseController {
             if (Session::has('flash_activation'))
                 Session::forget('flash_activation');
             PhpbbUser::activeUser(Auth::user()->id);
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_notice', 'Account validato correttamente');
         }
         else
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_error', 'Errore nella validazione dell\'account');
     }
 
     public function askCheckMail(){
         if(EmailCheck::sendToken(Auth::user()->id))
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_notice', 'L\'email di autenticazione ti è stata rinviata correttamente');
         else
             return Redirect::route('checkmail')
@@ -146,7 +146,7 @@ class AccountController extends BaseController {
     public function askDeleteMail()
     {
         if(DeleteCheck::sendToken(Auth::user()->id))
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_notice', 'L\'email di eliminazione dell\'account è stata inviata correttamente');
         else
             return Redirect::route('checkmail')
@@ -166,7 +166,7 @@ class AccountController extends BaseController {
                 ->with('flash_notice', 'Account eliminato correttamente');
         }
         else
-            return Redirect::route('profile')
+            return Redirect::route('profile.index')
                 ->with('flash_error', 'Errore nell\'eliminazione dell\'account');
     }
 }
