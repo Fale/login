@@ -45,9 +45,13 @@ Route::post('remindpassword', array( 'uses' => 'AccountController@remindPassword
 Route::get('remindpassword/{token}', function($token) { return View::make(t('account.resetpassword'))->with('token', $token); });
 Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
 
-// Profile
-Route::get('profile', array('as' => 'profile.index', function() {  return View::make(t('profile.index')); }))->before('auth');
-Route::get('profile/edit', array('as' => 'profile.edit', function() {  return View::make(t('profile.edit')); }))->before('auth');
+// Autenticated stuff
+Route::group(array('before' => 'auth'), function()
+{
+    // Profile
+    Route::get('profile', array('as' => 'profile.index', function() {  return View::make(t('profile.index')); }));
+    Route::get('profile/edit', array('as' => 'profile.edit', function() {  return View::make(t('profile.edit')); }));
 
-// Document
-Route::resource('profile/documents', 'DocumentsController');
+    // Document
+    Route::resource('profile/documents', 'DocumentsController');
+});
