@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="span9">
-    <h2>I tuoi documenti {{ link_to_route('profile.documents.create', 'Aggiungine uno', ['class' => 'btn btn-primary pull-right']) }}</h2>
+    <h2>I tuoi documenti {{ link_to_route('profile.documents.create', 'Aggiungine uno') }}</h2>
     <table class="table">
         <thead>
             <tr>
@@ -16,7 +16,7 @@
             </tr>
         </thead>
         <tbody>
-    @foreach (Document::getAll() as $document)
+    @foreach ($documents as $document)
             @if ($document->verified)
                 <tr class="success">
             @elseif ($document->expiry < gmdate('Y-m-d'))
