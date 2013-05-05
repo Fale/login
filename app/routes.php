@@ -46,7 +46,6 @@ Route::get('remindpassword/{token}', function($token) { return View::make(t('acc
 Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
 
 // Profile
-//Route::get('profile', array('as' => 'profile', function() {  return Redirect::to('http://fareinrete.it'); }))->before('auth');
 Route::get('profile', array('as' => 'profile', function() {  return View::make(t('account.profile')); }))->before('auth');
 
 // Document
