@@ -29,16 +29,6 @@ Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout
 Route::get('register', array('as' => 'register', function() { return View::make(t('account.register')); }))->before('guest');
 Route::post('register', array('uses' => 'AccountController@register'));
 
-// Email Check
-Route::get('checkmail/{token}', array('uses' => 'AccountController@checkMail'));
-Route::post('checkmail', array('uses' => 'AccountController@askCheckMail'));
-Route::get('checkmail', array('as' => 'checkmail', function() { return View::make(t('account.checkmail')); }))->before('auth');
-
-// Delete accounts
-Route::get('delete/{token}', array('uses' => 'AccountController@deleteUser'));
-Route::post('delete', array('uses' => 'AccountController@askDeleteMail'));
-Route::get('delete', array('as' => 'delete', function() { return View::make(t('account.deletemail')); }))->before('auth');
-
 // Lost Password
 Route::get('remindpassword', array('as' => 'remindPassword', function() { return View::make(t('account.remindpassword')); }))->before('guest');
 Route::post('remindpassword', array( 'uses' => 'AccountController@remindPassword'));
@@ -48,10 +38,16 @@ Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword')
 // Autenticated stuff
 Route::group(array('before' => 'auth'), function()
 {
-    // Profile
-    Route::get('profile', array('as' => 'profile.index', function() {  return View::make(t('profile.index')); }));
-    Route::get('profile/edit', array('as' => 'profile.edit', function() {  return View::make(t('profile.edit')); }));
-
     // Document
     Route::resource('profile/documents', 'DocumentsController');
+
+    // Profile
+    Route::controller('profile', 'ProfileController', Array(
+        'getIndex' => 'profile.index',
+        'getEdit' => 'profile.edit',
+        'getCheckmail' => 'profile.checkmail',
+        'getChecktoken' => 'profile.checktoken',
+        'getDeletetoken' => 'profile.deletetoken',
+        'getDeletemail' => 'profile.deletemail',
+    ));
 });
