@@ -44,8 +44,12 @@ class DocumentsController extends BaseController {
     public function store()
     {
         $input = Input::all();
-        $input['user_id'] = Auth::user()->id;
         $validation = Validator::make($input, Document::$rules);
+
+        // Prepare data to be stored in the DB
+        $input['user_id'] = Auth::user()->id;
+        $input['provided'] = Document::data($input['provided']);
+        $input['expiry'] = Document::data($input['expiry']);
 
         if ($validation->passes())
         {
