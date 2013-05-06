@@ -60,6 +60,26 @@ require $framework.'/Illuminate/Foundation/start.php';
 
 /*
 |--------------------------------------------------------------------------
+| Template function
+|--------------------------------------------------------------------------
+|
+| Here we will declare the function t() that will help us to always
+| use the right view, based on the choosen theme and using,
+| as fall back, to default.
+|
+*/
+
+function t($view)
+{
+    $uri = str_replace("/bootstrap/..","",app_path()) . "/views/" . Config::get('template') . "/" . str_replace(".","/",$view) . ".blade.php";
+    if (file_exists($uri))
+        return Config::get('template') . "." . $view;
+    else
+        return "default." . $view;
+}
+
+/*
+|--------------------------------------------------------------------------
 | Return The Application
 |--------------------------------------------------------------------------
 |

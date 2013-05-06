@@ -1,25 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
-function t($view)
-{
-    $uri = str_replace("/bootstrap/..","",app_path()) . "/views/" . Config::get('template') . "/" . str_replace(".","/",$view) . ".blade.php";
-    if(file_exists($uri))
-        return Config::get('template') . "." . $view;
-    else
-        return "default." . $view;
-}
-
 // Authenticated stuff
 Route::group(array('before' => 'auth'), function()
 {
