@@ -91,7 +91,8 @@ class AccountController extends BaseController {
     public function getRemindpassword($token = null)
     {
         if ($token)
-            return View::make(t('account.resetpassword'));
+            return View::make(t('account.resetpassword'))
+                ->with('token', $token);
         else
             return View::make(t('account.remindpassword'));
     }
