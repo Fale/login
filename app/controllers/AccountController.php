@@ -2,7 +2,7 @@
 
 class AccountController extends BaseController {
 
-    public function login()
+    public function postLogin()
     { 
         $user = array(
             'email' => Input::get('email'),
@@ -24,18 +24,12 @@ class AccountController extends BaseController {
             ->withInput();
 	}
     
-    public function logout()
+    public function getRegister()
     {
-        Auth::logout();
-        if (Session::has('flash_activation'))
-            Session::forget('flash_activation');
-        if (Session::has('flash_document'))
-            Session::forget('flash_document');
-        return Redirect::route('login')
-            ->with('flash_notice', 'You are successfully logged out.');
+        return View::make(t('account.register'));
     }
 
-    public function register()
+    public function postRegister()
     {
         $rules = array(
             'nome' => 'required',
@@ -94,7 +88,15 @@ class AccountController extends BaseController {
                 ->withInput();
     }
 
-    public function remindPassword()
+    public function getRemindpassword($token = null)
+    {
+        if ($token)
+            return View::make(t('account.resetpassword'));
+        else
+            return View::make(t('account.remindpassword'));
+    }
+
+    public function postRemindpassword()
     {
         $credentials = array('email' => Input::get('email'));
         Password::remind($credentials);
@@ -106,8 +108,8 @@ class AccountController extends BaseController {
                 ->with('flash_notice', 'E-mail inviata con successo');
 
     }
-
-    public function resetPassword(){
+    
+    public function postResetpassword(){
 
         $credentials = array('email' => Input::get('email'));
 

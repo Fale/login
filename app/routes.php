@@ -20,22 +20,7 @@ function t($view)
         return "default." . $view;
 }
 
-// Login and Logout
-Route::get('/', array('as' => 'login', function () { return View::make(t('account.login')); }))->before('guest');
-Route::post('login', array('uses' => 'AccountController@login'));
-Route::get('logout', array('as' => 'logout', 'uses' => 'AccountController@logout' ))->before('auth');
-
-// Registration
-Route::get('register', array('as' => 'register', function() { return View::make(t('account.register')); }))->before('guest');
-Route::post('register', array('uses' => 'AccountController@register'));
-
-// Lost Password
-Route::get('remindpassword', array('as' => 'remindPassword', function() { return View::make(t('account.remindpassword')); }))->before('guest');
-Route::post('remindpassword', array( 'uses' => 'AccountController@remindPassword'));
-Route::get('remindpassword/{token}', function($token) { return View::make(t('account.resetpassword'))->with('token', $token); });
-Route::post('resetpassword', array( 'uses' => 'AccountController@resetPassword'));
-
-// Autenticated stuff
+// Authenticated stuff
 Route::group(array('before' => 'auth'), function()
 {
     // Document
@@ -43,11 +28,24 @@ Route::group(array('before' => 'auth'), function()
 
     // Profile
     Route::controller('profile', 'ProfileController', Array(
+        'getLogout' => 'profile.logout',
         'getIndex' => 'profile.index',
         'getEdit' => 'profile.edit',
         'getCheckmail' => 'profile.checkmail',
         'getChecktoken' => 'profile.checktoken',
         'getDeletetoken' => 'profile.deletetoken',
         'getDeletemail' => 'profile.deletemail',
+    ));
+});
+
+Route::get('/', array('as' => 'login', function () { return View::make(t('account.login')); }))->before('guest');
+
+// Unauthenticated stuff
+Route::group(array('before' => 'guest'), function()
+{
+    //Autentication
+    Route::controller('/', 'AccountController', Array(
+        'getRegister' => 'register',
+        'getRemindpassword' => 'remindPassword',
     ));
 });

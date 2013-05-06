@@ -12,6 +12,17 @@ class ProfileController extends BaseController {
         return View::make(t('profile.edit'));
     }
 
+    public function getLogout()
+    {
+        Auth::logout();
+        if (Session::has('flash_activation'))
+            Session::forget('flash_activation');
+        if (Session::has('flash_document'))
+            Session::forget('flash_document');
+        return Redirect::route('login')
+            ->with('flash_notice', 'You are successfully logged out.');
+    }
+
     public function getCheckmail()
     {
         return View::make(t('profile.checkmail'));
