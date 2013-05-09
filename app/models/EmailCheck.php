@@ -3,7 +3,7 @@ class EmailCheck extends Eloquent {
 
     protected $guarded = array();
     public $timestamps = false;
-    protected $primarykey = 'user_id';
+    protected $primaryKey = 'user_id';
 
     public static function sendToken($userId){
         $user = User::find($userId);
