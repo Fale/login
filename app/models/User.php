@@ -21,6 +21,11 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 
     protected $guarded = array('id');
 
+	public function info()
+    {
+        return $this->hasOne('UserInfo');
+    }
+
 	/**
 	 * Get the unique identifier for the user.
 	 *
